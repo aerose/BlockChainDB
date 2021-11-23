@@ -1,15 +1,11 @@
-from flask import Flask,request, send_from_directory,render_template, redirect, url_for
-import os
+from flask import Flask,request,render_template
+
 from app.blockChain import *
 from app.top import top
 from app.Constants import mng
 
-import argparse
-import threading
+
 target = mng
-
-import parser
-
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = app.config.get('UPLOAD_FOLDER')
 
@@ -38,7 +34,6 @@ def delDB():
     if request.method == 'GET':
         name = request.args.get('name')
         s = str(target.delete(name))
-        #target.strg()
         return str(s)
 
 
@@ -52,7 +47,6 @@ def add_add():
         data = request.args.get('data')
         target.bc.new_data(data)
         target.bc.new_block(0)
-        #target.strg()
         return target.bc.printAll()
 
 
@@ -71,7 +65,6 @@ def find_find():
 @app.route('/revoke')
 def revoke():
     s = target.bc.revoke()
-    #target.strg()
     return str(s)
 
 @app.route('/showall')
@@ -111,11 +104,11 @@ def res():
     return render_template('rese.html')
 
 @app.route('/rese/add')
-def rese_add():  # 视图函数
-    if request.method == 'GET':  # 请求方式是get
-        name = request.args.get('name')  # args取get方式参数
+def rese_add():
+    if request.method == 'GET':
+        name = request.args.get('name') 
         age = request.args.get('age')
-        hobby = request.args.getlist('hobby')  # getlist取一键多值类型的参数
+        hobby = request.args.getlist('hobby') 
         return "姓名：%s 年龄：%s 爱好：%s" % (name, age, hobby)
 
 
@@ -128,4 +121,4 @@ def templat():
         "test": {"a": 1, "b": 2}
     }
 
-    return render_template('templat.html', **ctx)  # 一定要是关键字参数 **ctx
+    return render_template('templat.html', **ctx)

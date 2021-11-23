@@ -8,8 +8,6 @@ import click
 import sys
 
 
-
-
 from app.blockChain import *
 from app.routes import mng
 
@@ -20,9 +18,6 @@ completer1 = WordCompleter(wordList1, ignore_case=True)
 completer2 = WordCompleter(wordList2, ignore_case=True)
 
 
- 
-    
-    
 class CMDroutes:
     @staticmethod
     def page1():

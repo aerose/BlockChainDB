@@ -52,10 +52,6 @@ class top:
                 else: return False
         return False
     
-
-        
-        
-    
     def strg(self):
         fp = open('app/chain_data/data','wb')
         pickle.dump(self.bc_list,fp)

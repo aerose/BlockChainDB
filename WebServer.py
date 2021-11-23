@@ -1,7 +1,7 @@
 #!/usr/bin/python
-from app import routes
 from argparse import ArgumentParser
-import sys
+
+from app import routes
 
 routes.app.config.from_pyfile('../config.cfg')
 
