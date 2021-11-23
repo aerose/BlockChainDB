@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>use</title>
+		<link rel="shortcut icon" href={{url_for('static', filename='images/123.jpg') }}>
+		<link rel="stylesheet" href={{url_for('static', filename='css/style.css') }}>
+
+		<script src="js/jquery.min.js"></script>
+		
+		<script src="js/skel.min.js"></script>
+	    <script src="js/init.js"></script> 	
+
+		<script >
+			function ajaxf(){
+				
+				var xhr = new XMLHttpRequest();
+				var text = document.getElementById('text');
+				
+				var textvalue = text.value;
+				alert(textvalue)
+
+				xhr.open('get',window.location.origin+ '/find/find?find='+textvalue)
+				
+				xhr.send();
+				xhr.onload = function(){
+					
+					alert(xhr.responseText);
+				}
+
+				
+			}
+
+			function ajaxa(){
+				
+				var xhr = new XMLHttpRequest();
+				var text = document.getElementById('text');
+				
+				var textvalue = text.value;
+				alert(textvalue)
+
+				xhr.open('get',window.location.origin+'/add/add?data='+textvalue)
+				
+				xhr.send();
+				xhr.onload = function(){
+					
+					alert(xhr.responseText);
+				}
+
+				
+			}
+
+			function ajaxq(){
+				var xhr = new XMLHttpRequest();
+
+
+				xhr.open('get',window.location.origin+'/quit')
+				xhr.send();
+				document.getElementById("form").action= window.location.origin;
+				document.getElementById("form").submit();
+
+			}
+
+			function ajaxr(){
+				
+				var xhr = new XMLHttpRequest();
+				var text = document.getElementById('text');
+				var textvalue = text.value;
+				alert(textvalue)
+				xhr.open('get',window.location.origin+'/revoke')
+				xhr.send();
+				xhr.onload = function(){
+					alert(xhr.responseText);
+				}
+				
+
+				
+			}
+
+
+			
+		</script>
+
+		
+	</head>
+	<body class="homepage">
+
+		<!-- Header -->
+			<div id="header">
+				<div class="container">
+					
+					<!-- Logo -->
+						<h2><a  id="logo">BCDB<br></a></h2>
+					
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+			<!--				<form action=""  method="get"> 
+									
+									<label><input name="section" type="radio" value="use" />use </label> 
+									<label><input name="section" type="radio" value="create" />create </label> 
+									<label><input name="section" type="radio" value="delete" />delete </label> 
+								
+								</form> 
+-->	
+								<form id="form" method="get" >
+									请输入文本<input id="text" type="text"  />
+									<input type="button" id="find" value="find" onclick="ajaxf()" />
+									<input type="button" id="add" value="add" onclick="ajaxa()"/><br><br>
+									
+									<input type="button" id ="quit"value="quit" onclick="ajaxq()"/>
+									<input type="button" id ="revoke" value="revoke" onclick="ajaxr()"/>
+								</form>	
+								
+							
+							</ul><br>
+							
+						</nav>
+
+
+					<!-- Banner -->
+						<div id="banner">
+							<div class="container">
+								<section>
+									<header class="major">
+										<h2></h2>
+										<span class="byline"></span>
+										<h3>
+											∧＿∧<br>
+											　　　　（｡･ω･｡)つ━☆・*。<br>
+											　　　⊂ ノ 　　|　　　・゜+.<br>
+											　　　　　　しーJ　　　°。+ *´¨)<br>
+											　 　　　　　　　　　.· ´¸.·*´¨) ¸.·*¨)<br>
+											　 　　　　　　　　(¸.·´ (¸.·’　*<br>
+											
+										</h3>
+									</header>
+									
+									
+								</section>			
+							</div>
+						</div>
+						<h3>制作人：陈浩天，余坤，张亦文</h3>
+				</div>
+			</div>
+	</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Simple BlockChain DataBase</title>
+		<link rel="shortcut icon" href={{url_for('static', filename='images/123.jpg') }}>
+		<link rel="stylesheet" href={{url_for('static', filename='css/style.css') }}>
+
+ 		<script src="js/jquery.min.js"></script>
+		
+		<script src="js/skel.min.js"></script>
+	    <script src="js/init.js"></script> 	
+		
+
+		
+	</head>
+	<body class="homepage" >
+		<!-- Header -->
+			<div id="header">
+				<div class="container">
+						
+					<!-- Logo -->
+						<h2><a  id="logo">Simple BlockChain DataBase</a></h2>
+					
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+                       
+								<form id="form" method="get" >
+									请输入文本<input id="forme" type="text" value="">
+									<button id="use" class="button" onclick="submitu()" >use</button>
+									<button id="create" class="button" onclick="submitc()" >create</button>
+									<button id="delete" class="button" onclick="submitd()" >delete</button>
+									<br>									
+								  </form>
+							
+
+<!--							<li><a  class="button" >按钮一</a></li>
+
+								<li><a href="http://www.taobao.com" class="button">按钮二</a></li>-->	
+							</ul>
+						</nav>
+<script>
+	
+
+	function submitu(){
+		var xhr = new XMLHttpRequest();
+		var x=document.getElementById("forme").value
+		xhr.open('get',window.location.origin + "/use?DBname=" + x)
+		xhr.send();
+		
+		xhr.onload = function(){
+					
+			if(xhr.responseText=='True'){
+				alert(x+": inspection passed")
+				document.getElementById("form").action= window.location.origin+"/user";
+				document.getElementById("form").submit();
+			}
+		 	else{
+				alert(xhr.responseText)
+				}
+		}
+		
+		
+		
+	
+	}
+
+	function submitc(){
+
+		var xhr = new XMLHttpRequest();
+		var text = document.getElementById('forme');
+				
+		var textvalue = text.value;
+		alert(textvalue)
+
+		xhr.open('get',window.location.origin + "/create?name=" + textvalue)
+				
+		xhr.send();
+		xhr.onload = function(){
+					
+			alert(xhr.responseText);
+		}
+
+	}
+
+	function submitd(){
+		var xhr = new XMLHttpRequest();
+		var text = document.getElementById('forme');
+				
+		var textvalue = text.value;
+		alert(textvalue)
+
+		xhr.open('get',window.location.origin + "/delDB?name=" + textvalue)
+				
+		xhr.send();
+		xhr.onload = function(){
+					
+			alert(xhr.responseText);
+		}
+	}
+
+
+</script>
+
+					<!-- Banner -->
+						<div id="banner">
+							<div class="container">
+								<section>
+									<header class="major">
+										<h2></h2>
+										<span class="byline"></span>
+										<h3>
+											∧＿∧<br>
+											　　　　（｡･ω･｡)つ━☆・*。<br>
+											　　　⊂ ノ 　　|　　　・゜+.<br>
+											　　　　　　しーJ　　　°。+ *´¨)<br>
+											　 　　　　　　　　　.· ´¸.·*´¨) ¸.·*¨)<br>
+											　 　　　　　　　　(¸.·´ (¸.·’　*<br>
+											
+										</h3>
+									</header>
+									
+									
+											
+							</div>
+						</div>
+						<h3>制作人：陈浩天，余坤，张亦文</h3>
+				</div>
+			</div>
+	</body>
+</html>
