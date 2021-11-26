@@ -46,7 +46,7 @@ class blockChain:
         return self.last_block['index'] + 1
     
     
-    def revoke(self):
+    def revoke(self) -> bool:
 
         if len(self.chain) <= 1:
             print("Empty chain")

@@ -37,9 +37,7 @@ def delDB():
         return str(s)
 
 
-@app.route('/add')
-def add():
-    return render_template('add.html')
+
 
 @app.route('/add/add')
 def add_add():
@@ -50,9 +48,6 @@ def add_add():
         return target.bc.printAll()
 
 
-@app.route('/find')
-def find():
-    return render_template('index2.html')
 
 
 @app.route('/find/find')
@@ -86,39 +81,6 @@ def index():
 def index2():
     return render_template('index2.html')
 
-@app.route('/old')
-def index_old():
-
-    method_name=["use","create", "delete"] 
-    method_default = "use"
-
-    if request.args.get("select_method") in method_name:
-        method_default = request.args.get("select_country")
-
-    return render_template("index.html", method=method_name, default=method_default)
 
 
 
-@app.route('/rese')
-def res():
-    return render_template('rese.html')
-
-@app.route('/rese/add')
-def rese_add():
-    if request.method == 'GET':
-        name = request.args.get('name') 
-        age = request.args.get('age')
-        hobby = request.args.getlist('hobby') 
-        return "姓名：%s 年龄：%s 爱好：%s" % (name, age, hobby)
-
-
-@app.route('/templat')
-def templat():
-    ctx = {
-        "name": '老王',
-        "age": 12,
-        "hobby": ["下棋", '电影'],
-        "test": {"a": 1, "b": 2}
-    }
-
-    return render_template('templat.html', **ctx)

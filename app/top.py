@@ -32,7 +32,7 @@ class top:
     def showDB(self) -> str:
         return str(["" + str(i) for i in self.bc_list])
 
-    def delete(self, name):
+    def delete(self, name) -> bool:
         for i in range(len(self.bc_list)-1,-1,-1):
             if str(self.bc_list[i]) == name:
                 del self.bc_list[i]
@@ -41,7 +41,7 @@ class top:
         print("cant find the database to delete")
         return False
     
-    def use(self, name):
+    def use(self, name) -> bool:
         for i in self.bc_list:
             if name == str(i):
                 if i.valid_chain():
